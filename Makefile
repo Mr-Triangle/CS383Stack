@@ -1,46 +1,36 @@
 #  Makefile
-#  #    a makefile for the stack example.
-#
-#
-##            SHELL = 	/bin/sh
+# A good source for Makefiles
+# http://www.cs.colby.edu/maxwell/courses/tutorials/maketutor/
 
-#              TOP = .
-#              #      CURRENT_DIR = .
+CC=g++
+CFLAGS=
 
-#              CPP = /lib/cpp $(STD_CPP_DEFINES)
-#                            CXX  = g++
-#
-#                            #        CCOPTIONS =
-#           CFLAGS = $(CDEBUGFLAGS) $(CCOPTIONS) $(ALLDEFINES)
-#           #           RM_CMD = $(RM) *.o core
+SRCS=	main.cpp stack.cpp linkedList.cpp
 
-SRCS=	main.cpp	\
-	stack.cpp	\
-	linkedList.cpp
+OBJS=	main.o stack.o linkedList.o
 
-OBJS=	main.o	\
-	stack.o		\
-	linkedList.o
+#name of program executable
+TARGET=main
 
-main.o:	stack.h
+# This takes all .o objects and compiles them into target executable
+$(TARGET) : $(OBJS)
+	$(CC) $(CFLAGS) -o $(TARGET) $(OBJS)
 
-stack.o:	stack.h	\
-	linkedList.h
+# These are the .o rules for every file
+main.o:	main.cpp stack.h linkedList.h
+	$(CC) -c main.cpp
 
-link.o:	linkedList.h
+stack.o:	stack.cpp stack.h linkedList.h
+	$(CC) -c stack.cpp
 
-PROGRAMS = stackTest
+linkList.o:	linkedList.cpp linkedList.h
+	$(CC) -c linkedList.cpp
 
-all::  $(PROGRAMS)
-
-
-stackTest: $(OBJS)
-	$(CXX) -o $@ $(OBJS)
-#$(CXX) -o $@ $(OBJS) $(LDOPTIONS) $(LOCAL_LIBRARIES) $(LDLIBS)  $(EXTRA_LOAD_FLAGS)
-
+# This removes target and all .o files
 clean::
-	$(RM) stackTest 
+	$(RM) $(TARGET) *.o
 
+# Someday when we get a latex doc, it can be compiled here (or we just write a deditaced script)
 latex::
 	latex stack.tex    
 
