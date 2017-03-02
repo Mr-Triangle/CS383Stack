@@ -64,7 +64,7 @@ void LinkedList::PrintNode(){
     NodePtr p = head;
 
     while(p != NULL){
-        cout << p << endl;
+        cout << p->info << endl;
         p = p->next;
     }
 }
