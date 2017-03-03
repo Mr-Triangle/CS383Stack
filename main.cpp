@@ -14,6 +14,9 @@ using namespace std;
 
 main()
 {
+   int reverse[5];                                         // Array to hold reverse string of intigers
+   int j;                                                  // For loop counter
+   
    Stack iStack;
 
    cout << "Pushing integers onto iStack" << endl;
@@ -31,8 +34,12 @@ main()
    cout << endl << "Popping integers from iStack" << endl;
 
    while( !iStack.IsEmpty() )
-      cout << iStack.Pop() << ' ';
-
+      //cout << iStack.Pop() << ' ';
+      for (j = 0; j < 5; j++)
+      {
+         reverse[j] = iStack.Pop();
+         cout << reverse[j] << ' ';
+      }                                            // reverse should now hold the stack in reverse order. Can print if needed.
    cout << endl;
    iStack.Print();          // output the stack contents
 
