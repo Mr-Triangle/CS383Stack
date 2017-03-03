@@ -3,4 +3,8 @@ it for a project. This project is made using code that I wrote for
 CS 121. It pushes integers ontothe stack and then removes them from the
 stack.
 
-Kevin Dorscher changed "main.cpp" so an array of intigers holds the stack in reverse order.
+Kevin Dorscher changed "main.cpp" 
+
+Added a function to store the pop order of the stack, reverse order of the original string.
+This array is only of size 5, since only 5 values are pushed onto the stack, but
+I can change the size later if needed.
