@@ -37,12 +37,12 @@ main()
    while( !iStack.IsEmpty() )
       //cout << iStack.Pop() << ' ';
       reverseStack (&reverse, &iStack);
-      for (j = 0; j < 5; j++)
-      {
-         reverse[j] = iStack.Pop();
-         cout << reverse[j] << ' ';
-      }                                            // reverse should now hold the stack in reverse order. Can print if needed.
-   cout << endl;
+      //for (j = 0; j < 5; j++)
+      //{
+         //reverse[j] = iStack.Pop();
+         //cout << reverse[j] << ' ';
+      //}                                            // reverse should now hold the stack in reverse order. Can print if needed.
+   //cout << endl;
    iStack.Print();          // output the stack contents
 
 
