@@ -12,10 +12,11 @@ using namespace std;
 
 #include "stack.h"
 
+void reverseStack(int arr[], Stack <int> &St);              // Should pass iStack by refrence, and reverse by refrence.
+
 main()
 {
    int reverse[5];                                         // Array to hold reverse string of intigers
-   int j;                                                  // For loop counter
    
    Stack iStack;
 
@@ -35,6 +36,7 @@ main()
 
    while( !iStack.IsEmpty() )
       //cout << iStack.Pop() << ' ';
+      reverseStack (&reverse, &iStack);
       for (j = 0; j < 5; j++)
       {
          reverse[j] = iStack.Pop();
@@ -50,4 +52,14 @@ main()
        cout << "The stack is not empty" << endl;
 
    return 0;
+}
+
+void reverseStack (int arr[], Stack <int> &St)
+{
+   for (j = 0; j < 5; j++)
+   {
+      arr[j] = St.Pop();
+      cout << arr[j] << ' ';
+   }
+   cout << endl;
 }
